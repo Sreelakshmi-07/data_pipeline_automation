@@ -13,7 +13,7 @@ MASTERDB_COLLECTION = "database_urls"
 SHEET_NAME = "Global Market Data Report"
 
 class MarketDataReport:
-    # country and competitor data
+    ''' country and competitor data'''
     COUNTRY_DATA = {
         "1": ("Fantasia", "FN", ["martina", "grocers", "dailyplus", "hyperworld"]),
         "2": ("Atlantis", "AT", ["supermart", "freshzone", "globalshop", "healthystore"]),
@@ -31,11 +31,14 @@ class MarketDataReport:
         self.client = MongoClient("mongodb://localhost:27017")  # Local MongoDB connection
 
     def start(self):
+
+        '''Checking country data and database'''
+        
         while True:
             if self.need_to_continue.upper() != "Y":
                 break
-            
-            logging.warning(self.COUNTRY_DATA)
+            country_list = {index: data[0] for index, data in self.COUNTRY_DATA.items()}
+            logging.warning(country_list)
             country_index = input("Enter the Country : ")
             if country_index not in self.COUNTRY_DATA:
                 print("Invalid country choice.")
@@ -64,6 +67,9 @@ class MarketDataReport:
             self.db_info(db, competitor_list, date, country_code)
 
     def db_info(self, db, competitor_list, date, country_code):
+
+        '''retreiving competitor list from db'''
+
         query = {'site': {'$in': competitor_list}}
         documents = db[MASTERDB_COLLECTION].find(query)
         info = {doc['site']: doc['info'] for doc in documents}
@@ -71,6 +77,9 @@ class MarketDataReport:
         self.sheet_update(info, date, country_code, db)
 
     def sheet_update(self, info, date, country_code, db):
+
+        '''Updating google sheets'''
+
         gc = pygsheets.authorize(client_secret="sheet-automation.json")
         sheet = gc.open(SHEET_NAME)
         

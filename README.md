@@ -10,8 +10,8 @@ This repository contains a set of automation scripts designed to streamline data
 * **Data Integration**: Seamlessly integrate data across systems to ensure consistency and easy retrieval.
 
 ## Table of Content
-* [Market Data Report Generator](#market_data_report.py)
-* [Record Sync Manager](#record_sync_manager.py)
+* [Market Data Report Generator](#market_data_reportpy)
+* [Record Sync Manager](#record_sync_managerpy)
 
 ## market_data_report.py
 

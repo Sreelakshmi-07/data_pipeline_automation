@@ -13,6 +13,7 @@ This repository contains a set of automation scripts designed to streamline data
 * [Market Data Report Generator](#market_data_reportpy)
 * [Record Sync Manager](#record_sync_managerpy)
 * [JSON to Excel/CSV/XML Converter](#json_format_converterpy)
+* [CSV to Excel/JSON/XML/Html Converter](#csv_format_converterpy)
 
 ## market_data_report.py
 
@@ -80,7 +81,6 @@ The script includes basic error handling, including:
 * Python 3.x
 * pandas library
 * json2xml
-  
 Install the necessary Python libraries using:
 
 ~~~ 
@@ -96,3 +96,24 @@ pip install pandas json2xml
     python3 json_format_converter.py
     ~~~
 3. The script will output the converted Excel file (output_path.xlsx) , CSV file (output_path.csv) and XML file (output_path.xml) in the same directory or the directory you specified.
+
+# csv_format_converter.py
+### Prerequisites
+* Python 3.x
+* pandas library
+* json2xml
+Install the necessary Python libraries using:
+
+~~~ 
+pip install pandas json2xml
+~~~
+
+### Usage
+
+1. Clone this repository or download the script file.
+2. Run the script by entering the following command:
+
+    ~~~
+    python3 csv_format_converter.py
+    ~~~
+3. Enter the path to your CSV file when prompted. The script will generate the converted files in the same directory as your CSV file with matching filenames but different extensions (.json, .xlsx, .xml, .html).

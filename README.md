@@ -12,7 +12,7 @@ This repository contains a set of automation scripts designed to streamline data
 ## Table of Content
 * [Market Data Report Generator](#market_data_reportpy)
 * [Record Sync Manager](#record_sync_managerpy)
-* [JSON to Excel/CSV Converter](#json_to_excel_csv_converterpy)
+* [JSON to Excel/CSV/XML Converter](#json_format_converterpy)
 
 ## market_data_report.py
 
@@ -75,14 +75,15 @@ The script includes basic error handling, including:
 * File Inserts and Updates: When inserting or updating records in MongoDB, exceptions are captured to handle potential issues like connection errors or document conflicts.
 * Detailed Logging: Each error encountered during MongoDB operations is logged.
 
-## json_to_excel_csv_converter.py
+## json_format_converter.py
 ### Prerequisites
 * Python 3.x
 * pandas library
+* json2xml
 Install the necessary Python libraries using:
 
 ~~~ 
-pip install pandas
+pip install pandas json2xml
 ~~~
 
 ### Usage
@@ -91,6 +92,6 @@ pip install pandas
 2. Run the script by entering the following command:
 
     ~~~
-    python3 json_to_excel_csv_converter.py
+    python3 json_format_converter.py
     ~~~
-3. The script will output the converted Excel file (output_path.xlsx) and CSV file (output_path.csv) in the same directory or the directory you specified.
+3. The script will output the converted Excel file (output_path.xlsx) , CSV file (output_path.csv) and XML file (output_path.xml) in the same directory or the directory you specified.
